@@ -2,6 +2,7 @@
 using SwimmingSchoolApi.Interfaces;
 using SwimmingSchoolApi.Models;
 using SwimmingSchoolApi.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SwimmingSchoolApi.Controllers
 {
@@ -24,6 +25,7 @@ namespace SwimmingSchoolApi.Controllers
             return Ok(availablePlaces ? "Places are available for this lesson." : "No available paces for this lesson");
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateLessonDto dto)
         {

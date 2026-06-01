@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SwimmingSchoolApi.Models;
 
 namespace SwimmingSchoolApi.Data
@@ -11,5 +11,6 @@ namespace SwimmingSchoolApi.Data
 
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

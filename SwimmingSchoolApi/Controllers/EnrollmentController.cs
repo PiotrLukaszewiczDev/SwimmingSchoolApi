@@ -2,6 +2,7 @@
 using SwimmingSchoolApi.DTOs;
 using SwimmingSchoolApi.Interfaces;
 using SwimmingSchoolApi.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SwimmingSchoolApi.Controllers
 {
@@ -50,6 +51,7 @@ namespace SwimmingSchoolApi.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createDto.Id }, createDto);
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMember(int id)
         {
@@ -83,7 +85,7 @@ namespace SwimmingSchoolApi.Controllers
             return Ok(enrollmentDto);
         }
 
-        [HttpGet("leson/{lessonId}")]
+        [HttpGet("lesson/{lessonId}")]
         public async Task<IActionResult> GetByLessonId(int lessonId)
         {
             var lesson = await _repository.GetByLessonIdAsync(lessonId);
